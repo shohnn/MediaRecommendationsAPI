@@ -13,14 +13,16 @@ namespace MediaRecommendations.Infrastructure.TmdbService
         RestClient client;
         private const string DEFAULT_PARAMS = "include_adult=false&include_video=false&language=en-US";
 
-        public async Task<List<Recommendation>> GetBlockBustersAsync(int BigScreens, int weeks)
+        public async Task<List<Recommendation>> GetBlockBustersAsync(int BigScreens, int weeks, List<string> popularGenres)
         {
             List<Recommendation> recommendations = new List<Recommendation>();
             string withGenresParam = "&with_genres=";
 
             int numPages = (int)Math.Ceiling((BigScreens * weeks) / NUM_RESULTS_PER_PAGE);
 
-            List<MovieResultDTO> requestResults = await MakeRequestWithParam(withGenresParam, numPages);
+            string formattedPopularGenres = GenreStorage.GetFormattedGenres(popularGenres);
+
+            List<MovieResultDTO> requestResults = await MakeRequestWithParam(withGenresParam, numPages, formattedPopularGenres);
 
             requestResults.ForEach(x => x.Results
                 .ForEach(y => recommendations.Add(
@@ -41,7 +43,7 @@ namespace MediaRecommendations.Infrastructure.TmdbService
             return recommendations;
         }
 
-        public async Task<List<Recommendation>> GetSmallRoomMoviesAsync(int SmallScreens, int weeks)
+        public async Task<List<Recommendation>> GetSmallRoomMoviesAsync(int SmallScreens, int weeks, List<string> popularGenres)
         {
             List<Recommendation> recommendations = new List<Recommendation>();
 
@@ -49,7 +51,9 @@ namespace MediaRecommendations.Infrastructure.TmdbService
 
             int numPages = (int)Math.Ceiling((SmallScreens * weeks) / NUM_RESULTS_PER_PAGE);
 
-            List<MovieResultDTO> requestResults = await MakeRequestWithParam(withoutGenresParam, numPages);
+            string formattedPopularGenres = GenreStorage.GetFormattedGenres(popularGenres);
+
+            List<MovieResultDTO> requestResults = await MakeRequestWithParam(withoutGenresParam, numPages, formattedPopularGenres);
 
             requestResults.ForEach(x => x.Results
                 .ForEach(y => recommendations.Add(
@@ -69,7 +73,7 @@ namespace MediaRecommendations.Infrastructure.TmdbService
             return recommendations;
         }
 
-        private async Task<List<MovieResultDTO>> MakeRequestWithParam(string param, int numPages)
+        private async Task<List<MovieResultDTO>> MakeRequestWithParam(string param, int numPages, string popularGenres)
         {
             List<MovieResultDTO> results = new List<MovieResultDTO>();
             options = new RestClientOptions();
@@ -79,8 +83,7 @@ namespace MediaRecommendations.Infrastructure.TmdbService
             //TODO Store private key in secrets.
             request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGUyZDAwZjhhNTY3YTBlYzM1NWY1OTE3NGE4MzhhZCIsInN1YiI6IjY0ZDI4YWVkOTQ1ZDM2MDBhY2EwYzdjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3XeJ5my1tGvnYdVEPNuOGXgAqlKv0bsTCdyZ_WwhXKs");
 
-            string blockBusterGenres = GenreStorage.GetBlockBusterGenres();
-            string genreParam = param + blockBusterGenres;
+            string genreParam = param + popularGenres;
 
             for (int i = 1; i <= numPages; i++)
             {

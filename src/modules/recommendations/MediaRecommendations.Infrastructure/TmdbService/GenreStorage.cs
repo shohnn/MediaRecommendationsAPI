@@ -28,23 +28,37 @@ namespace MediaRecommendations.Infrastructure.TmdbService
             {10752, "War"},
             {37, "Western"}
         };
+        public static Dictionary<string, int> GenresByName { get; } = new Dictionary<string, int>
+        {
+            {"Action", 28},
+            {"Adventure", 12},
+            {"Animation", 16},
+            {"Comedy", 35},
+            {"Crime", 80},
+            {"Documentary", 99},
+            {"Drama", 18},
+            {"Family", 10751},
+            {"Fantasy", 14},
+            {"History", 36},
+            {"Horror", 27},
+            {"Music", 10402},
+            {"Mystery", 9648},
+            {"Romance", 10749},
+            {"Science Fiction", 878},
+            {"TV Movie", 10770},
+            {"Thriller", 53},
+            {"War", 10752},
+            {"Western", 37}
+        };
 
-        // Based on https://fivethirtyeight.com/features/the-11-defining-features-of-the-summer-blockbuster/
-        public static string GetBlockBusterGenres()
+        public static string GetFormattedGenres(List<string> genres)
         {
             string orOperand = "%7C";
-            StringBuilder sb = new StringBuilder();
-            sb.Append(28);
-            sb.Append(orOperand);
-            sb.Append(12);
-            sb.Append(orOperand);
-            sb.Append(53);
-            sb.Append(orOperand);
-            sb.Append(35);
-            sb.Append(orOperand);
-            sb.Append(18);
+            string result = string.Join(orOperand, genres
+                                .Where(GenresByName.ContainsKey)
+                                .Select(name => GenresByName[name].ToString()));
 
-            return sb.ToString();
+            return result;
         }
     }
 }

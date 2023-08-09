@@ -1,5 +1,6 @@
 ﻿using MediaRecommendations.Application.UseCases;
 using MediaRecommendations.Domain.Contracts;
+using MediaRecommendations.Infrastructure.Repositories;
 using MediaRecommendations.Infrastructure.TmdbService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //DI Repositories
 builder.Services.AddScoped<IMediaInformationService, TmdbService>();
+builder.Services.AddScoped<IMoviesDAO, MoviesDAO>();
 
 //DI Use Cases
 builder.Services.AddScoped<GetIntelligentBillboard>();

@@ -7,9 +7,9 @@ namespace MediaRecommendations.Domain.Contracts
     public interface IMediaInformationService
     {
 
-        Task<List<Recommendation>> GetBlockBustersAsync(int BigScreens, int weeks);
+        Task<List<Recommendation>> GetBlockBustersAsync(int BigScreens, int weeks, List<string> popularGenres);
 
-        Task<List<Recommendation>> GetSmallRoomMoviesAsync(int SmallScreens, int weeks);
+        Task<List<Recommendation>> GetSmallRoomMoviesAsync(int SmallScreens, int weeks, List<string> popularGenres);
     }
 }
 
