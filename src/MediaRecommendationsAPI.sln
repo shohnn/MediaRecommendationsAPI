@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{BEE02FFC-6C34-46BF-9371-E829FC97F9CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "https", "https", "{EB1C3889-1D75-4049-A2D0-33B6E8A10AE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{BBB0C26B-3E63-4E68-A87A-0759B54AA3E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BC45707A-463A-4E24-A092-6A619BA2A837}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "recommendations", "recommendations", "{1CDC2702-3EEB-49AF-B103-66705714FB52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "recommendations", "recommendations", "{237CFB52-5308-4239-AC63-D77981C9EF60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaRecommendations.WebApi", "app\https\MediaRecommendations.WebApi\MediaRecommendations.WebApi.csproj", "{C576C3A8-DE90-44F2-A56D-CABAAB038FBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaRecommendations.Domain", "modules\recommendations\MediaRecommendations.Domain\MediaRecommendations.Domain.csproj", "{FD093A72-2DDC-42F7-9DBC-CC192ACBFCCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaRecommendations.Application", "modules\recommendations\MediaRecommendations.Application\MediaRecommendations.Application.csproj", "{87A0D119-547C-47A8-8380-F972C43798A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaRecommendations.Infrastructure", "modules\recommendations\MediaRecommendations.Infrastructure\MediaRecommendations.Infrastructure.csproj", "{54B21F2E-95A4-4418-833D-C19E89F91FF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C576C3A8-DE90-44F2-A56D-CABAAB038FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C576C3A8-DE90-44F2-A56D-CABAAB038FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C576C3A8-DE90-44F2-A56D-CABAAB038FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C576C3A8-DE90-44F2-A56D-CABAAB038FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD093A72-2DDC-42F7-9DBC-CC192ACBFCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD093A72-2DDC-42F7-9DBC-CC192ACBFCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD093A72-2DDC-42F7-9DBC-CC192ACBFCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD093A72-2DDC-42F7-9DBC-CC192ACBFCCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A0D119-547C-47A8-8380-F972C43798A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A0D119-547C-47A8-8380-F972C43798A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A0D119-547C-47A8-8380-F972C43798A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A0D119-547C-47A8-8380-F972C43798A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B21F2E-95A4-4418-833D-C19E89F91FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B21F2E-95A4-4418-833D-C19E89F91FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B21F2E-95A4-4418-833D-C19E89F91FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B21F2E-95A4-4418-833D-C19E89F91FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9C3A01B-C7DF-44BA-914E-79AF91753EB7}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB1C3889-1D75-4049-A2D0-33B6E8A10AE9} = {BEE02FFC-6C34-46BF-9371-E829FC97F9CA}
+		{1CDC2702-3EEB-49AF-B103-66705714FB52} = {BBB0C26B-3E63-4E68-A87A-0759B54AA3E8}
+		{237CFB52-5308-4239-AC63-D77981C9EF60} = {BC45707A-463A-4E24-A092-6A619BA2A837}
+		{C576C3A8-DE90-44F2-A56D-CABAAB038FBA} = {EB1C3889-1D75-4049-A2D0-33B6E8A10AE9}
+		{FD093A72-2DDC-42F7-9DBC-CC192ACBFCCC} = {1CDC2702-3EEB-49AF-B103-66705714FB52}
+		{87A0D119-547C-47A8-8380-F972C43798A8} = {1CDC2702-3EEB-49AF-B103-66705714FB52}
+		{54B21F2E-95A4-4418-833D-C19E89F91FF9} = {1CDC2702-3EEB-49AF-B103-66705714FB52}
+	EndGlobalSection
+EndGlobal
