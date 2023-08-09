@@ -6,8 +6,7 @@ namespace MediaRecommendations.Application.DTOs
         public List<string> Keywords { get; set; }
         public List<string> Genres { get; set; }
         public bool Adult { get; set; }  // Only for Theater managers
-        public bool BasedOnCitySuccess { get; set; } // Only for Theater managers
         public DateTime? UpcomingPeriodTo { get; set; }
     }
-}
+}   
 

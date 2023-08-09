@@ -15,26 +15,23 @@ namespace MediaRecommendations.WebApi.Controllers
         {
         }
 
-        //[HttpGet("movies")]
-        //public virtual async Task<IActionResult> GetMovieRecommendations(MovieRecommendationCriteria criteria)
-        //{
-        //    var recommendations = await _recommendationService.GetRecommendationsForViewersAsync(criteria);
-        //    return Ok(recommendations);
-        //}
+        [HttpGet("movies")]
+        public virtual async Task<IActionResult> GetMovieRecommendations(MovieRecommendationCriteria criteria)
+        {
+            throw new NotImplementedException();
+        }
 
-        //[HttpGet("tvshows")]
-        //public virtual async Task<IActionResult> GetTvShowsRecommendations(MovieRecommendationCriteria criteria)
-        //{
-        //    var recommendations = await _recommendationService.GetRecommendationsForViewersAsync(criteria);
-        //    return Ok(recommendations);
-        //}
+        [HttpGet("tvshows")]
+        public virtual async Task<IActionResult> GetTvShowsRecommendations(TvShowRecommendationCriteria criteria)
+        {
+            throw new NotImplementedException();
+        }
 
-        //[HttpGet("documentaries")]
-        //public virtual async Task<IActionResult> GetMovieRecommendations(MovieRecommendationCriteria criteria)
-        //{
-        //    var recommendations = await _recommendationService.GetRecommendationsForViewersAsync(criteria);
-        //    return Ok(recommendations);
-        //}
+        [HttpGet("documentaries")]
+        public virtual async Task<IActionResult> GetDocumentaryRecommendations(DocumentaryRecommendationCriteria criteria)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

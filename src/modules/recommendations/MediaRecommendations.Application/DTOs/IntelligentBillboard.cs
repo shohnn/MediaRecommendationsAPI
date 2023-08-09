@@ -5,14 +5,6 @@ namespace MediaRecommendations.Application.DTOs
 	{
         public List<WeeklyRecommendation> Recommendations { get; set; }
 
-
-        public IntelligentBillboard FromDomain(Domain.Models.IntelligentBillboard billboard)
-        {
-            return new IntelligentBillboard()
-            {
-
-            };
-        }
     }
 }
 
