@@ -25,19 +25,22 @@ namespace MediaRecommendations.Infrastructure.TmdbService
             List<MovieResultDTO> requestResults = await MakeRequestWithParam(withGenresParam, numPages, formattedPopularGenres);
 
             requestResults.ForEach(x => x.Results
-                .ForEach(y => recommendations.Add(
-                    new Recommendation()
-                    {
-                        Title = y.Title,
-                        Overview = y.Overview,
-                        Genre = GenreStorage.GenresById[y.GenreIds[0]],
-                        Adult = y.Adult,
-                        Language = y.OriginalLanguage,
-                        ReleaseDate = y.ReleaseDate,
-                        MediaType = Domain.Enum.MediaType.Movie
-                    })
-                    )
-                );
+                .ForEach(y =>
+                {
+                    var genreId = y.GenreIds.FirstOrDefault();
+                    recommendations.Add(
+                        new Recommendation()
+                        {
+                            Title = y.Title,
+                            Overview = y.Overview,
+                            Genre = genreId != default ? GenreStorage.GenresById[genreId] : "Unspecified", // You might want a default genre or null check
+                            Adult = y.Adult,
+                            Language = y.OriginalLanguage,
+                            ReleaseDate = y.ReleaseDate,
+                            MediaType = Domain.Enum.MediaType.Movie
+                        });
+                })
+            );
 
 
             return recommendations;
@@ -56,19 +59,22 @@ namespace MediaRecommendations.Infrastructure.TmdbService
             List<MovieResultDTO> requestResults = await MakeRequestWithParam(withoutGenresParam, numPages, formattedPopularGenres);
 
             requestResults.ForEach(x => x.Results
-                .ForEach(y => recommendations.Add(
-                    new Recommendation()
-                    {
-                        Title = y.Title,
-                        Overview = y.Overview,
-                        Genre = GenreStorage.GenresById[y.GenreIds[0]],
-                        Adult = y.Adult,
-                        Language = y.OriginalLanguage,
-                        ReleaseDate = y.ReleaseDate,
-                        MediaType = Domain.Enum.MediaType.Movie
-                    })
-                    )
-                );
+                .ForEach(y =>
+                {
+                    var genreId = y.GenreIds.FirstOrDefault();
+                    recommendations.Add(
+                        new Recommendation()
+                        {
+                            Title = y.Title,
+                            Overview = y.Overview,
+                            Genre = genreId != default ? GenreStorage.GenresById[genreId] : "Unspecified", // You might want a default genre or null check
+                            Adult = y.Adult,
+                            Language = y.OriginalLanguage,
+                            ReleaseDate = y.ReleaseDate,
+                            MediaType = Domain.Enum.MediaType.Movie
+                        });
+                })
+            );
 
             return recommendations;
         }

@@ -26,6 +26,12 @@ namespace MediaRecommendations.WebApi.Controllers
         [HttpGet("intelligent-billboard")]
         public async Task<IActionResult> GetIntelligentBillboardRecommendations(IntelligentBillboardRecommendationCriteria criteria)
         {
+            // Check if the criteria is less than one week
+            if ((criteria.PeriodEnd - criteria.PeriodStart).TotalDays < 7)
+            {
+                return BadRequest("The specified period should be at least one week.");
+            }
+
             var recommendations = await _getintelligentBillboard.Get(criteria);
             return Ok(recommendations);
         }

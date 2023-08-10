@@ -48,7 +48,7 @@ namespace MediaRecommendations.Application.UseCases
                         }
                         else
                         {
-                            // Optionally handle the situation where there aren't enough recommendations for the rooms.
+                            // Handle the situation where there aren't enough recommendations for the rooms.
                             break;
                         }
                     }
@@ -63,7 +63,7 @@ namespace MediaRecommendations.Application.UseCases
                         }
                         else
                         {
-                            // Optionally handle the situation where there aren't enough recommendations for the rooms.
+                            // Handle the situation where there aren't enough recommendations for the rooms.
                             break;
                         }
                     }
@@ -73,6 +73,8 @@ namespace MediaRecommendations.Application.UseCases
 
                 intelligentBillboard.Recommendations = recommendations;
             }
+
+            //Logic if not flagged
 
             return intelligentBillboard;
 		}
