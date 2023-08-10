@@ -17,5 +17,5 @@ API to retrieve media recommendations based on different criterias.
 
 # Test
 
-1. Build solution
+1. Test solution
     - dotnet test
