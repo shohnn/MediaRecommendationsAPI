@@ -1,3 +1,6 @@
+# Description
+API to retrieve media recommendations based on different criterias.
+
 # Requirements
 
 1. .Net Core 7
@@ -12,3 +15,7 @@
 1. Build solution
     - dotnet build
 
+# Test
+
+1. Build solution
+    - dotnet test
